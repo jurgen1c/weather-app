@@ -9,10 +9,20 @@ class Wrap{
     let details = document.createElement('div');
     let fav = document.createElement('button');
     let img = document.createElement('img');
+    let label = document.createElement('label');
+    let input = document.createElement('input');
+    let span = document.createElement('span');
 
-    fav.textContent = 'Add Favorite';
+    label.className = 'switch';
+    input.id = 'toggler';
+    input.type = 'checkbox';
+    span.classList.add('slider', 'round');
+    
+    label.appendChild(input);
+    label.appendChild(span);
 
     header.appendChild(fav);
+    header.appendChild(label);
     header.appendChild(title);
     header.appendChild(subtitle);
 
@@ -25,6 +35,7 @@ class Wrap{
 
     this.title = title;
     this.fav = fav;
+    this.toggle = input;
     this.subtitle = subtitle;
     this.temp = temp;
     this.img = img;
@@ -34,31 +45,27 @@ class Wrap{
     this.minData;
     this.maxData;
     this.feels;
+    this.name;
   }
 
-  setDetails(data){
+  setDetails(data, unit){
     let labels = ['Feels like: ', 'Humidity: ', 'Atmospheric Pressure: ', 'Max Temp: ', 'Min Temp: ', 'Wind Speed: '];
-    let symbols = [' C°', ' %', ' inHg', ' C°', ' C°', ' kph']
+    let Csymbols = [' C°', ' %', ' inHg', ' C°', ' C°', ' kph'];
+    let Fsymbols = [' F°', ' %', ' inHg', ' F°', ' F°', ' kph']
     this.details.innerHTML = '';
-    for(let i = 0;i < data.length; i++){
-      let info = document.createElement('p');
-      info.textContent = labels[i] + data[i] + symbols[i];
-      this.details.appendChild(info);
-    } 
-  }
-
-  setFar(){
-    this.tempData = (this.tempData * 1.8000) + 32;
-    this.minData = (this.minData * 1.8000) + 32;
-    this.maxData = (this.maxData * 1.8000) + 32;
-    this.feels = (this.feels * 1.8000) + 32;
-  }
-
-  setCel(){
-    this.tempData = (this.tempData - 32) / 1.8000;
-    this.minData = (this.minData - 32) / 1.8000;
-    this.maxData = (this.maxData - 32) / 1.8000;
-    this.feels = (this.feels - 32) / 1.8000;
+    if(unit === 'metric'){
+      for(let i = 0;i < data.length; i++){
+        let info = document.createElement('p');
+        info.textContent = labels[i] + data[i] + Csymbols[i];
+        this.details.appendChild(info);
+      } 
+    }else{
+      for(let i = 0;i < data.length; i++){
+        let info = document.createElement('p');
+        info.textContent = labels[i] + data[i] + Fsymbols[i];
+        this.details.appendChild(info);
+      }
+    }
   }
 }
 

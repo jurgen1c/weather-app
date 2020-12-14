@@ -70,11 +70,23 @@ body,
   }
 }
 
+.modal-wrap{
+  position: relative;
+  width: 10%;
+}
+
+.modal{
+  display: none;
+  position: absolute;
+  top: 60%;
+  background: rgba(111, 112, 112, 0.842);
+}
+
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 4rem;
+  height: 2rem;
 }
 
 /* Hide default HTML checkbox */
@@ -100,8 +112,8 @@ body,
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 1.7rem;
+  width: 1.7rem;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -118,9 +130,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(1.7rem);
+  -ms-transform: translateX(1.7rem);
+  transform: translateX(1.7rem);
 }
 
 /* Rounded sliders */
