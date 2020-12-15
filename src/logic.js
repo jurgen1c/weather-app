@@ -32,7 +32,7 @@ const key = 'dac7bc2e0fc4f64340cbaadfa6ece2de';
 const imgUrl = 'http://openweathermap.org/img/wn/';
 
 async function getData(place, unit) {
-  const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${place}&units=${unit}&appid=${key}`);
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&units=${unit}&appid=${key}`);
   const json = await response.json();
   return {
     name: json.name,
@@ -70,7 +70,7 @@ function setBg(value) {
   }
 }
 
-function setData(result, unit) {
+const setData = (result, unit) => {
   container.innerHTML = '';
   cont.tempData = result.temp;
   cont.minData = result.minTemp;
@@ -111,7 +111,7 @@ function show(el) {
   }
 }
 
-function pushFavorites() {
+const pushFavorites = () => {
   favContent.innerHTML = '';
   if (localStorage.favorites) {
     const favorites = JSON.parse(localStorage.favorites);
