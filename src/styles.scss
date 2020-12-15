@@ -1,10 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, 
+body,
 .default {
   background: url('./images/noaa_optimized.jpg');
   background-size: cover;
@@ -12,141 +12,147 @@ body,
   background-repeat: no-repeat;
 }
 
-.rain{
+.rain {
   background: url('./images/rain_optimized.jpg');
   background-size: cover;
   background-position: 50% 22.5%;
   background-repeat: no-repeat;
 }
 
-.clouds{
+.clouds {
   background: url('./images/clouds_optimized.jpg');
   background-size: cover;
   background-position: 50% 22.5%;
   background-repeat: no-repeat;
 }
 
-.fog{
+.fog {
   background: url('./images/fog_optimized.jpg');
   background-size: cover;
   background-position: 50% 22.5%;
   background-repeat: no-repeat;
 }
 
-.clear{
+.clear {
   background: url('./images/clear_optimized.jpg');
   background-size: cover;
   background-position: 50% 22.5%;
   background-repeat: no-repeat;
 }
 
-.snow{
+.snow {
   background: url('./images/snow_optimized.jpg');
   background-size: cover;
   background-position: 50% 22.5%;
   background-repeat: no-repeat;
 }
 
-.weather-wrap{
+.weather-wrap {
   margin: 0 auto;
   background: rgba(83, 81, 81, 0.699);
   width: 70%;
   min-height: 20em;
-  padding: .7rem;
+  padding: 0.7rem;
   border-radius: 15px;
   color: whitesmoke;
 }
 
-.filler{
+.filler {
   font-size: 3rem;
   text-align: justify;
   margin: 2.5rem 0 0 0;
 }
 
-.header-wrap{
-  padding: .7rem;
+.header-wrap {
+  padding: 0.7rem;
   display: flex;
   justify-content: center;
   min-height: 7em;
-  input{
+
+  input {
     outline: none;
     border: none;
     border-radius: 10px;
     width: 50%;
     height: 2em;
     font-size: 1.7rem;
-    padding: .5rem;
+    padding: 0.5rem;
   }
-  button{
+
+  button {
     font-size: 1.7rem;
-    margin: .2rem .7rem;
+    margin: 0.2rem 0.7rem;
   }
 }
 
-.modal-wrap{
+.modal-wrap {
   position: relative;
   width: 15%;
 }
 
-.modal{
+.modal {
   position: absolute;
   top: 60%;
   background: rgba(111, 112, 112, 0.842);
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 10px;
   color: whitesmoke;
 }
 
-.modal-item{
+.modal-item {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  button{
+
+  button {
     font-size: 1.3rem;
   }
 }
 
-.fav-link{
+.fav-link {
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.head{
+.head {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
-.title{
+.title {
   font-size: 4rem;
 }
 
-.sub-title{
+.sub-title {
   font-size: 1.3rem;
   display: flex;
   flex-flow: row wrap;
 }
 
-.content-wrap{
+.content-wrap {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  img{
+
+  img {
     width: 12em;
     height: 12em;
   }
-  h1{
-    padding: .5rem;
+
+  h1 {
+    padding: 0.5rem;
     font-size: 7rem;
   }
-  .details-wrap{
-    padding: .5rem;
+
+  .details-wrap {
+    padding: 0.5rem;
     font-size: 1.7rem;
   }
 }
 
-.btn{
-  padding: .5rem;
+.btn {
+  padding: 0.5rem;
   margin: 0 1rem;
   font-size: 1rem;
   outline: none;
@@ -154,15 +160,16 @@ body,
   border-radius: 5px;
   color: whitesmoke;
 }
-.danger{
+
+.danger {
   background: rgb(212, 132, 132);
 }
 
-.primary{
+.primary {
   background: rgb(127, 154, 243);
 }
 
-.tog-label{
+.tog-label {
   color: whitesmoke;
   font-size: 1.2rem;
 }
@@ -190,11 +197,11 @@ body,
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 1.7rem;
@@ -202,19 +209,19 @@ body,
   left: 2px;
   bottom: 1px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   -webkit-transform: translateX(1.7rem);
   -ms-transform: translateX(1.7rem);
   transform: translateX(1.7rem);
@@ -225,6 +232,6 @@ input:checked + .slider:before {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round::before {
   border-radius: 50%;
 }
