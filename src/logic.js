@@ -29,7 +29,7 @@ topCont.appendChild(favWrap);
 container.appendChild(welcome);
 
 const key = 'dac7bc2e0fc4f64340cbaadfa6ece2de';
-const imgUrl = 'http://openweathermap.org/img/wn/';
+const imgUrl = 'https://openweathermap.org/img/wn/';
 
 async function getData(place, unit) {
   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&units=${unit}&appid=${key}`);
