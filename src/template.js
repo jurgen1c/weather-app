@@ -13,6 +13,11 @@ class Wrap{
     let input = document.createElement('input');
     let span = document.createElement('span');
 
+    content.className = 'content-wrap';
+    details.className = 'details-wrap';
+    title.className = 'title'
+    subtitle.className = 'sub-title'
+    fav.classList.add('btn', 'primary');
     label.className = 'switch';
     input.id = 'toggler';
     input.type = 'checkbox';
@@ -49,7 +54,7 @@ class Wrap{
   }
 
   setDetails(data, unit){
-    let labels = ['Feels like: ', 'Humidity: ', 'Atmospheric Pressure: ', 'Max Temp: ', 'Min Temp: ', 'Wind Speed: '];
+    let labels = ['Feels like: ', 'Humidity: ', 'AP: ', 'Max Temp: ', 'Min Temp: ', 'Wind Speed: '];
     let Csymbols = [' C°', ' %', ' inHg', ' C°', ' C°', ' kph'];
     let Fsymbols = [' F°', ' %', ' inHg', ' F°', ' F°', ' kph']
     this.details.innerHTML = '';

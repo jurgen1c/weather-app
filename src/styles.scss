@@ -50,36 +50,109 @@ body,
 .weather-wrap{
   margin: 0 auto;
   background: rgba(83, 81, 81, 0.699);
-  width: 65%;
+  width: 70%;
   min-height: 20em;
   padding: .7rem;
   border-radius: 15px;
+  color: whitesmoke;
+}
+
+.filler{
+  font-size: 3rem;
+  text-align: justify;
+  margin: 2.5rem 0 0 0;
 }
 
 .header-wrap{
   padding: .7rem;
   display: flex;
   justify-content: center;
-  min-height: 5em;
+  min-height: 7em;
   input{
     outline: none;
     border: none;
     border-radius: 10px;
     width: 50%;
-    font-size: 2rem;
+    height: 2em;
+    font-size: 1.7rem;
+    padding: .5rem;
+  }
+  button{
+    font-size: 1.7rem;
+    margin: .2rem .7rem;
   }
 }
 
 .modal-wrap{
   position: relative;
-  width: 10%;
+  width: 15%;
 }
 
 .modal{
-  display: none;
   position: absolute;
   top: 60%;
   background: rgba(111, 112, 112, 0.842);
+  padding: .5rem;
+  border-radius: 10px;
+  color: whitesmoke;
+}
+
+.modal-item{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  button{
+    font-size: 1.3rem;
+  }
+}
+
+.head{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.title{
+  font-size: 4rem;
+}
+
+.sub-title{
+  font-size: 1.3rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.content-wrap{
+  display: flex;
+  justify-content: space-around;
+  img{
+    width: 12em;
+    height: 12em;
+  }
+  h1{
+    padding: .5rem;
+    font-size: 7rem;
+  }
+  .details-wrap{
+    padding: .5rem;
+    font-size: 1.7rem;
+  }
+}
+
+.btn{
+  padding: .5rem;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+.danger{
+  background: rgb(212, 132, 132);
+}
+
+.primary{
+  background: rgb(127, 154, 243);
 }
 
 .switch {

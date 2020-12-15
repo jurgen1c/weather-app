@@ -15,19 +15,24 @@ const topCont = document.getElementById('content');
 const input = document.createElement('input');
 const tog = document.getElementById('toggler');
 const favTitle = document.createElement('button');
+const welcome = document.createElement('h1');
+welcome.textContent = 'Welcome to Weather Check write the name of the city you would like to know the current weather off and click enter'
+welcome.className = 'filler'
 
 const cont = new Wrap();
 container.className = 'weather-wrap';
 topCont.className = 'header-wrap';
 favWrap.className = 'modal-wrap';
 favContent.className = 'modal';
+favContent.style.display = 'none';
+favTitle.classList.add('btn', 'primary')
 favTitle.textContent = 'Favorites';
 
 favWrap.appendChild(favTitle);
 favWrap.appendChild(favContent);
 topCont.appendChild(input);
 topCont.appendChild(favWrap);
-container.innerHTML = 'Welcome to Weather Check write the name of the city you would like to know the current weather off and click enter'
+container.appendChild(welcome);
 
 const key = 'dac7bc2e0fc4f64340cbaadfa6ece2de';
 const img_url = 'http://openweathermap.org/img/wn/';
@@ -81,7 +86,7 @@ function setData(result, unit){
   cont.name = result.name;
   cont.fav.textContent = 'Add Favorite';
   cont.title.textContent = `${result.name}, ${result.country} ${result.description}`;
-  cont.subtitle.textContent = `Latitud: ${result.lat} Longitud: ${result.lon} Sunrise: ${format(new Date(result.sunrise), 'ppp')} Sunset: ${format(new Date(result.sunset), 'ppp')}`;
+  cont.subtitle.textContent = `Latitud: ${result.lat} Longitud: ${result.lon} Sunrise: ${format(new Date(result.sunrise), 'pp')} Sunset: ${format(new Date(result.sunset), 'pp')}`;
   let infoDetails = [cont.feels, result.humidity, result.pressure, cont.maxData, cont.minData, result.wind]
   if(unit === 'metric'){
     cont.temp.textContent = cont.tempData + 'C°';
@@ -95,23 +100,8 @@ function setData(result, unit){
   setBg(result.value);
 }
 
-cont.fav.addEventListener('click', (e) => {
-  e.stopPropagation();
-  if(localStorage['favorites']){
-    let favorites = JSON.parse(localStorage['favorites']);
-    favorites.push(cont.name);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    e.target.textContent = 'Added to Favorites!';
-  }else{
-    let favorites = [];
-    favorites.push(cont.name);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    e.target.textContent = 'Added to Favorites!';
-  }
-})
-
 function show(el){
-  if(el.style.display = 'none'){
+  if(el.style.display === 'none'){
     el.style.display = 'block';
   }else{
     el.style.display = 'none';
@@ -124,17 +114,21 @@ function pushFavorites(){
     let favorites = JSON.parse(localStorage['favorites']);
     for(let i = 0; i < favorites.length; i++){
       let item = new Favorite(favorites[i]);
+      item.className = 'modal-item';
       item.link.addEventListener('click', (e) => {
         e.preventDefault();
         getData(item.link.textContent, 'metric').then(result => {
           setData(result, 'metric');
         })
+        show(favContent);
       })
       item.remove.addEventListener('click', (e) => {
         e.stopPropagation();
         let elements = JSON.parse(localStorage['favorites']);
+        console.log(elements);
         elements.splice(i, 1);
-        localStorage.setItem(JSON.stringify(elements));
+        localStorage.setItem('favorites', JSON.stringify(elements));
+        e.target.parentElement.remove();
       })
       favContent.appendChild(item.content);
     }
@@ -144,6 +138,23 @@ function pushFavorites(){
     favContent.appendChild(item);
   }
 }
+
+cont.fav.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if(localStorage['favorites']){
+    let favorites = JSON.parse(localStorage['favorites']);
+    favorites.push(cont.name);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    e.target.textContent = 'Added to Favorites!';
+    pushFavorites();
+  }else{
+    let favorites = [];
+    favorites.push(cont.name);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    e.target.textContent = 'Added to Favorites!';
+    pushFavorites();
+  }
+})
 
 favTitle.addEventListener('click', () => {
   show(favContent);
