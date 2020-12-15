@@ -12,6 +12,7 @@ class Wrap{
     let label = document.createElement('label');
     let input = document.createElement('input');
     let span = document.createElement('span');
+    let toglabel = document.createElement('span');
 
     content.className = 'content-wrap';
     details.className = 'details-wrap';
@@ -22,11 +23,15 @@ class Wrap{
     input.id = 'toggler';
     input.type = 'checkbox';
     span.classList.add('slider', 'round');
+    toglabel.className = 'tog-label';
+    toglabel.textContent = 'C° / F°';
+    
     
     label.appendChild(input);
     label.appendChild(span);
 
     header.appendChild(fav);
+    header.appendChild(toglabel);
     header.appendChild(label);
     header.appendChild(title);
     header.appendChild(subtitle);
@@ -69,6 +74,19 @@ class Wrap{
         let info = document.createElement('p');
         info.textContent = labels[i] + data[i] + Fsymbols[i];
         this.details.appendChild(info);
+      }
+    }
+  }
+
+  favCheck(){
+    if(localStorage['favorites']){
+      let favorites = JSON.parse(localStorage['favorites']);
+      for(let i = 0; i < favorites.length; i++){
+        if(favorites[i] === this.name){
+          this.fav.style.display = 'none';
+        }else{
+          this.fav.style.display = 'inline';
+        }
       }
     }
   }

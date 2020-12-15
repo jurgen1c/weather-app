@@ -125,6 +125,7 @@ body,
 .content-wrap{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   img{
     width: 12em;
     height: 12em;
@@ -141,6 +142,7 @@ body,
 
 .btn{
   padding: .5rem;
+  margin: 0 1rem;
   font-size: 1rem;
   outline: none;
   border: none;
@@ -155,11 +157,16 @@ body,
   background: rgb(127, 154, 243);
 }
 
+.tog-label{
+  color: whitesmoke;
+  font-size: 1.2rem;
+}
+
 .switch {
   position: relative;
   display: inline-block;
-  width: 4rem;
-  height: 2rem;
+  width: 3.5rem;
+  height: 1.8rem;
 }
 
 /* Hide default HTML checkbox */
@@ -187,8 +194,8 @@ body,
   content: "";
   height: 1.7rem;
   width: 1.7rem;
-  left: 4px;
-  bottom: 4px;
+  left: 2px;
+  bottom: 1px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
