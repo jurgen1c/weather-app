@@ -101,7 +101,7 @@ const setData = (result, unit) => {
   cont.img.src = `${imgUrl + result.icon}@2x.png`;
   container.appendChild(cont.content);
   setBg(result.value);
-}
+};
 
 function show(el) {
   if (el.style.display === 'none') {
@@ -139,7 +139,7 @@ const pushFavorites = () => {
     item.textContent = 'Your favorites will show up here!';
     favContent.appendChild(item);
   }
-}
+};
 
 const handleListeners = () => {
   cont.fav.addEventListener('click', (e) => {

@@ -84,10 +84,9 @@ class Wrap {
       for (let i = 0; i < favorites.length; i += 1) {
         if (favorites[i] === this.name) {
           this.fav.style.display = 'none';
-          return
-        } else {
-          this.fav.style.display = 'inline';
+          return;
         }
+        this.fav.style.display = 'inline';
       }
     }
   }
